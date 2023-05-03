@@ -1,0 +1,9 @@
+pip install tensorflow
+pip install keras
+pip install opencv-python
+pip install pandas
+pip install h5py
+pip install matplotlib
+pip install pillow
+pip install numpy
+pip install scipy
