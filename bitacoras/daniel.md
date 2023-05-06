@@ -20,4 +20,14 @@ El clasificador parece ser bastante decente para identificar las emociones, y ra
 
 Se suben archivos necesarios unicamente para correr el modelo al repositorio. Direcotrio Emociones. 
 
+### Viernes 5 de amyo
 
+Hablar con Rachel sobre como convertir el modelo con tensorflow lite
+
+### Sábado 6 de mayo
+Convertir el modelo a tensorflow lite e intentar correr el modelo recortado.
+Archivos de converter_2.py para tomar el archivo .hdf5 orginial del modelo para convertilro a un .tflite 
+
+Se hace copia del código orignial emotion.py -> emotions_tflite.py en donde se intenta utilizar en vez del modelo original el modelo recortado con tensorflow lite.
+
+Referencias: bingchat
