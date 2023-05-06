@@ -30,4 +30,46 @@ Archivos de converter_2.py para tomar el archivo .hdf5 orginial del modelo para 
 
 Se hace copia del código orignial emotion.py -> emotions_tflite.py en donde se intenta utilizar en vez del modelo original el modelo recortado con tensorflow lite.
 
+Se muestran los cambios exactos hechos al código original para que pudiera utilizar el modelo guradado en formato .tflite
+```
+(emotion-det) daniel@daniel-Latitude-7420:~/s1-2023/embebidos/p2/Emociones$ diff emotions.py emotions_tflite.py 
+16c16
+< emotion_model_path = './models/emotion_model.hdf5'
+---
+> emotion_model_path = 'model.tflite'
+25c25,28
+< emotion_classifier = load_model(emotion_model_path)
+---
+> #emotion_classifier = load_model(emotion_model_path)
+> import tensorflow as tf
+> interpreter = tf.lite.Interpreter(model_path="model.tflite")
+> interpreter.allocate_tensors()
+27,28c30,33
+< # getting input model shapes for inference
+< emotion_target_size = emotion_classifier.input_shape[1:3]
+---
+> input_details = interpreter.get_input_details()
+> output_details = interpreter.get_output_details()
+> 
+> input_shape = input_details[0]['shape']
+29a35,38
+> 
+> # getting input model shapes for inference
+> #emotion_target_size = emotion_classifier.input_shape[1:3]
+> emotion_target_size = input_details[0]['shape'][1:3]
+68c77,86
+<         emotion_prediction = emotion_classifier.predict(gray_face)
+---
+>         #emotion_prediction = emotion_classifier.predict(gray_face)
+> 
+>         input_data = gray_face.astype(np.float32)
+>         interpreter.set_tensor(input_details[0]['index'], input_data)
+> 
+>         interpreter.invoke()
+> 
+>         output_data = interpreter.get_tensor(output_details[0]['index'])
+>         
+>         emotion_prediction = output_data
+```
+
 Referencias: bingchat
