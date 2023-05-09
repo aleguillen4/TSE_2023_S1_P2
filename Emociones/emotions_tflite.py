@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from keras.models import load_model
+#from keras.models import load_model
 from statistics import mode
 from utils.datasets import get_labels
 from utils.inference import detect_faces
@@ -23,8 +23,12 @@ emotion_offsets = (20, 40)
 # loading models
 face_cascade = cv2.CascadeClassifier('./models/haarcascade_frontalface_default.xml')
 #emotion_classifier = load_model(emotion_model_path)
-import tensorflow as tf
-interpreter = tf.lite.Interpreter(model_path="model.tflite")
+#import tensorflow as tf
+#from tflite_runtime.Interpreter import Interpreter
+
+import tensorflow.lite as tflite
+
+interpreter =tflite.Interpreter(model_path="model.tflite")
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()
