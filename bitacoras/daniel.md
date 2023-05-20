@@ -72,4 +72,17 @@ Se muestran los cambios exactos hechos al código original para que pudiera util
 >         emotion_prediction = output_data
 ```
 
+### Domingo 15 de mayo
+
+Se realiza el archivo emotions_pi.py que será el programa principal encargado de correr en la rasberry pi, se empieza del programa emotions_tflite.py y se editan varias cosas como:
+
+- Tomar fotos y realizar inferencias basado en un tiempo tomado de config.txt
+- Limitar la duración maximo del programa basado en un tiempo tomado de config.txt
+- Almacenar cada imagen en la carpte caputars con stampa de tiempo y emoción
+- Almacenar en un archivo `output.csv` datos de las imagenes tomadas y emoción registrada
+
+Se realiza el archivo gui.py que hace con TKinter una cajita con 3 botones de mommento, connect, run scrip, y disconnect, permite conectarse a un dispositov por ssh con su correspondiente clave publica lista, y corre el script the emociones.
+
+
+
 Referencias: bingchat
