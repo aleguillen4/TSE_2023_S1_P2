@@ -9,6 +9,7 @@ from utils.inference import apply_offsets
 import os
 import time
 import tensorflow.lite as tflite
+import glob
 
 def preprocess_input(x, v2=True):
     x = x.astype('float32')
@@ -75,6 +76,7 @@ if os.path.exists('config.txt'):
 
     # Parse configuration data
     sample_time = float(config_data[0])
+    max_images = int(config_data[2])
     # Add more configuration data as needed
 # Add more configuration data as needed
 
@@ -168,8 +170,17 @@ while cap.isOpened(): # True:
         if not os.path.exists('capturas'):
             os.makedirs('capturas')
         # Save captured image to file
+        
+        # Get list of all image files in the capturas folder
+        image_files = glob.glob('capturas/*.png')
 
-        filename = f'capturas/{timestamp}_{emotion_text}_{frame_number}.jpg'
+        # Check if the number of image files exceeds the maximum allowed
+        if len(image_files) >= max_images:
+            # Get the oldest image file based on creation time
+            oldest_image = min(image_files, key=os.path.getctime)
+            # Delete the oldest image file
+            os.remove(oldest_image)
+        filename = f'capturas/{timestamp}_{emotion_text}_{frame_number}.png'
         cv2.imwrite(filename, bgr_image)
         # Increment frame number
         frame_number += 1
