@@ -83,6 +83,32 @@ Se realiza el archivo emotions_pi.py que será el programa principal encargado d
 
 Se realiza el archivo gui.py que hace con TKinter una cajita con 3 botones de mommento, connect, run scrip, y disconnect, permite conectarse a un dispositov por ssh con su correspondiente clave publica lista, y corre el script the emociones.
 
+# Sábado 20 de mayo
 
+Se buscan otras opciones además de tkinter para realizar la gui del sistema "servidor"
+Se prueba sin exito kviv, pyQT entre otros
 
+Se empieza a utilizar con buenos resultados pysimpleimage.
+
+Se basa en el siguiente (código base)[https://realpython.com/pysimplegui-python/#creating-a-pysimplegui-image-viewer] para desarrollar la aplicación con botones y visualización.
+
+Se comienza a desarrollar varias funcionalidades:
+
+- Corre programa
+- Detener programa
+- Actualizar la ultima foto
+- Actualizar carpeta con todas las fotos
+- Actualizar los valores configuracion: sample time, max time, max photos
+
+Finalmente se tiene parametros de alta importancia para la implementación en la rasbery pi, al inicio del código `GUI.py`
+
+```
+# Set parameters
+username = 'daniel'
+ip = '192.168.100.113'
+public_key = '/home/daniel/.ssh/embe'
+remote_dir = '/home/daniel/s1-2023/embebidos/p2/Emociones/'
+
+```
+Se tiene también el archivo de pruebas de daniel gui_2.py (que es practicamente el mismo pero con unas lineas extras para correr el ambiente de anaconda)
 Referencias: bingchat
