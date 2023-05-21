@@ -83,6 +83,21 @@ Se realiza el archivo emotions_pi.py que será el programa principal encargado d
 
 Se realiza el archivo gui.py que hace con TKinter una cajita con 3 botones de mommento, connect, run scrip, y disconnect, permite conectarse a un dispositov por ssh con su correspondiente clave publica lista, y corre el script the emociones.
 
+# Jueves 18 de mayo
+
+Se hace limpia de varias cosas del código para inferencia, para eliminar tantas dependecias de librerías como se pueda.
+
+- Se elimina la dependencia de keras
+- Se eliminan dependecias de algunos archivos de "util"
+
+De momento se cuenta con los siguientes archivos requeridos en la rasberry pi para correr el sistema:
+
+- emotions_pi.py
+- model.tflite
+- utils/inference.py
+- models/haarcascade_frontalface_default.xml
+ 
+
 # Sábado 20 de mayo
 
 Se buscan otras opciones además de tkinter para realizar la gui del sistema "servidor"
