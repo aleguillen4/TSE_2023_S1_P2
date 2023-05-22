@@ -30,3 +30,24 @@ Archivos para correr en el computador remoto:
 
 capturas sería un directorio vacío (`mkdir capturas`)
 
+## Paquetes que importa los archivos de python para corre en la rasberry pi:
+
+```
+import datetime
+import csv
+import cv2
+import numpy as np
+import os
+import time
+import tensorflow.lite as tflite
+import glob
+
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+
+h5py
+pandas
+scipy
+
+```
