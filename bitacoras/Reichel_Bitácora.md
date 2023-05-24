@@ -66,7 +66,6 @@ Pero estaba dando errores, y en las raspberrypi2, no estaba dando los resultados
 Bitbake core-image-minimal
 
 ```
-### Sábado 20 de Mayo 
 
 Yocto dejó de correr la imagen por lo que se decide que se van a usar solo dos meta de Openembedded: meta-python y meta-oe.Los bblayers van quedando de la siguiente forma:
 
@@ -89,7 +88,7 @@ Se descubre que hay una carpeta con espacio pero está bloqueada, se realiza los
 $ Sudo chown reimorales /dev/sda1
 $ Sudo remount -o rw /dev/sda1
 ```
-### Domingo 21 de Mayo 
+### Sábado 20 de Mayo 
 
 Ale también estaba construyendo imágenes y me dijo que le agregara:
 
@@ -143,7 +142,7 @@ El layer tiene archivos entre esos recipes-example/examples, cuando llegamos ah�
 ├── recipes-example
     └── example
        └── example_0.1.bb
-``
+```
 
 Se crea un archivo llamado files, por medio del comando :
  
@@ -225,4 +224,31 @@ BBLAYERS ?= " \
 ```
 Alejandro no le servía la raspberry, me la da mañana
 
-### Domingo 21 de Mayo 
+### Lunes 22 de Mayo 
+
+Para cargar la imagen a la Raspberrypi2 por medio de Windows, se descargó un programa llamado Etcher recomendado por un compañero de clase:
+
+```
+https://balenaetcher.online
+```
+Se conecta la Raspberrypi2 con cable Ethernet al router de la casa, y se conecta la computadora a esa misma red.
+
+Para poder conectar la compu a la raspberrypi2 se debe hacer por ssh, por lo que debemos conocer el IP de la raspb, ese se obtiene por medio de 'Ifconfig',una vez tenemos el IP,podemos conectarnos con el siguiente comando:
+
+```
+ ssh root@192.168.0.126
+ 
+```
+Una vez conectada se verifica que la progra funcione de manera correcta, pero se tuvieron que cambiar unas líneas sobre tensorflow-lite.
+
+Ahora se prueba la progra que se corre en la máquina local llamada 'GUI.py', se le agregaron los siguientes parámetros:
+
+```
+username = 'root'
+ip = '192.168.0.126' 
+public_key = 'C:/Users/Rachell/.ssh/id_rsa'
+remote_dir = '/usr/bin/'
+```
+De igual forma se crea una llave en la máquina local, la cuál se agrega a la imagen en la raspberrypi2.
+
+Junto con Daniel se corrigieron varias cosas que dieron error al conectarla con un máquina remota.
