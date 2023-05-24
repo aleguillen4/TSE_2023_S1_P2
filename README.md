@@ -2,8 +2,8 @@
 
 Integrantes: 
 Daniel González Vargas
-Rachel
-Alejandro
+Reichel Morales Sánchez
+Alejandro Guillén
 
 ## Descarga las dependencias para correr `emotions.py`
 
@@ -50,4 +50,14 @@ h5py
 pandas
 scipy
 
+```
+
+## Repositorios que clonar para dependencias
+
+Se utilizan los siguientes comandos para clonar los repositorios:
+```
+git clone -b langdale https://github.com/openembedded/meta-openembedded.git
+git clone -b langdale https://github.com/openembedded/openembedded-core.git
+git clones -b langdale https://github.com/NobuoTsukamoto/meta-tensorflow-lite
+git clone -b langdale git://git.yoctoproject.org/meta-raspberrypi
 ```
