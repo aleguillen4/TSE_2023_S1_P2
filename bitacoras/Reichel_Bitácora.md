@@ -67,7 +67,7 @@ Bitbake core-image-minimal
 
 ```
 
-Yocto dejó de correr la imagen por lo que se decide que se van a usar solo dos meta de Openembedded: meta-python y meta-oe.Los bblayers van quedando de la siguiente forma:
+Yocto dejó de correr la imagen por lo que se decide que se van a usar solo dos meta de Openembedded: `meta-python` y `meta-oe`.Los bblayers van quedando de la siguiente forma:
 
 ```
 BBLAYERS ?= " \
@@ -98,8 +98,8 @@ VIDEO_CAMERA = "1"
 RPI_CAMERA = "1"
 ```
 Según entiendo la de fortran es una variable que habilita soporte de compilaciól de código fortran para el entorno de Yocto.
-Y según ChatGPT : Al establecer 'VIDEO_CAMERA en "1"', se indica que se debe incluir soporte para cámaras de video en la imagen generada por Yocto. Esto permitirá que las aplicaciones o componentes del sistema utilicen cámaras de video conectadas al sistema embebido.
-Esta variable se utiliza específicamente en el contexto de Raspberry Pi. Al establecer 'RPI_CAMERA en "1"', se indica que se debe habilitar el soporte para la cámara oficial de Raspberry Pi en la imagen generada por Yocto. Esto permitirá que las aplicaciones o componentes del sistema utilicen la cámara Raspberry Pi conectada al sistema embebido.
+Y según ChatGPT : Al establecer `VIDEO_CAMERA en "1"`, se indica que se debe incluir soporte para cámaras de video en la imagen generada por Yocto. Esto permitirá que las aplicaciones o componentes del sistema utilicen cámaras de video conectadas al sistema embebido.
+Esta variable se utiliza específicamente en el contexto de Raspberry Pi. Al establecer `RPI_CAMERA en "1"`, se indica que se debe habilitar el soporte para la cámara oficial de Raspberry Pi en la imagen generada por Yocto. Esto permitirá que las aplicaciones o componentes del sistema utilicen la cámara Raspberry Pi conectada al sistema embebido.
 
 Se agregaron más dependencias al local, por que la progra tiene varias librerias:
 
@@ -126,7 +126,7 @@ IMAGE_INSTALL:append = " \
 ```
 ### Domingo 21 de Mayo 
 
-Se crea una layer llamada 'meta-progra'
+Se crea una layer llamada `meta-progra`
  
 ```
 bitbake-layers create-layer meta-progra
@@ -149,7 +149,8 @@ Se crea un archivo llamado files, por medio del comando :
 ```
 mkdir files
 ```
-En este vamos a tener 5 archivos: emotions_pi.py, haarcascade_frontalface_default.xml, inference.py , model.tflite , output.csv
+En este vamos a tener 5 archivos: ` emotions_pi.py, haarcascade_frontalface_default.xml, inference.py , model.tflite , output.csv`
+
 Los cuales debemos agregar al .bb
 
 ```
@@ -241,7 +242,7 @@ Para poder conectar la compu a la raspberrypi2 se debe hacer por ssh, por lo que
 ```
 Una vez conectada se verifica que la progra funcione de manera correcta, pero se tuvieron que cambiar unas líneas sobre tensorflow-lite.
 
-Ahora se prueba la progra que se corre en la máquina local llamada 'GUI.py', se le agregaron los siguientes parámetros:
+Ahora se prueba la progra que se corre en la máquina local llamada `GUI.py`, se le agregaron los siguientes parámetros:
 
 ```
 username = 'root'
