@@ -8,7 +8,7 @@ from utils.inference import draw_bounding_box
 from utils.inference import apply_offsets
 import os
 import time
-import tensorflow.lite as tflite
+import tflite_runtime.interpreter as tflite
 import glob
 
 def preprocess_input(x, v2=True):
