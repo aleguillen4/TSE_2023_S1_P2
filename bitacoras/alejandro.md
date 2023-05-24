@@ -63,6 +63,8 @@ BBLAYERS ?= " \
 La imagen mínima, de la misma manera, luego de horas de estar sintetizándose, faltando un 5% del build fallaban, esto pasó en varias ocasiones, y no se encuentra un error a nivel de local.conf o bblayers, ni de dependencias. 
 
 Luego de reiterados fallos en la síntesis de la imagen, después de mucho tiempo en debugging, y realizando diferentes pruebas en la máquina local; no se encuentra un problema evidente, por lo que decido compartir mi progreso relacionado a yocto, para que Daniel y Rachell intenten lo mismo, para descartar que sea mi máquina. 
+### Período entre 10 y 15 de Mayo
+Se cambian diferentes parámetros en el build, en general debugging de problemas en los comandos o similar, se elimina la carpeta poky y se clona pero con el release langdale. Se intentan nuevos Builds y se busca información en tutoriales. 
 
 ### 16 de Mayo
 Hasta este momento he trabajado con mi máquina con Ubuntu nativo y prestaciones regulares (corei5 octava, 16Gb de ram, 256Gb almacenamiento) decido configurar la máquina virtual (previamente no me había funcionado la conexión por ssh) desde cero, crear un alias "runvm" para conectarme a la VM de azure, realizo el proceso de crear y montar un nuevo disco de 256 GB y en general realizo los cambios necesarios para trabajar los builds a nivel de VM. 
