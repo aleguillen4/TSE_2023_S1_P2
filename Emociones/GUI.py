@@ -5,10 +5,10 @@ from scp import SCPClient
 import os
 
 # Set parameters
-username = 'daniel'
-ip = '192.168.100.113' 
-public_key = '/home/daniel/.ssh/embe'
-remote_dir = '/home/daniel/s1-2023/embebidos/p2/Emociones/'
+username = 'root'
+ip = '192.168.0.126' 
+public_key = 'C:/Users/Rachell/.ssh/id_rsa'
+remote_dir = '/usr/bin/'
 
 
 
@@ -27,7 +27,7 @@ def disconnect():
 
 def run_script():
     # Execute a command on the remote computer
-    ssh.exec_command(f' cd {remote_dir} && nohup python emotions_pi.py &')
+    ssh.exec_command(f' cd {remote_dir} && nohup python3 emotions_pi.py &')
 
     # Print the output of the command
    # print(stderr.read().decode())
@@ -36,9 +36,9 @@ def run_script():
 def check_last_image():
     # Execute a command on the remote computer to get the last image in a folder
     folder_path = f'{remote_dir}capturas'
-    cmd = f'ls -t {folder_path}/*.png | head -1'
+    cmd = f'ls -t {folder_path}/*.png | head -n 1'
     stdin, stdout, stderr = ssh.exec_command(cmd)
-    last_image = stdout.read().decode().strip()
+    last_image = stdout.read().decode().strip().splitlines()[0]
     # Copy the last image from the remote computer to the local computer using SCP
     
     local_dir = 'ultima_captura.png'
@@ -98,7 +98,7 @@ def get_capturas():
     local_dir = 'capturas'
 
     # Transfer directory from remote to local host
-    scp.get(remote_dir_c, local_dir, recursive=True)
+    scp.get(remote_dir_C, local_dir, recursive=True)
     # Set remote and local file paths
     remote_file = f'{remote_dir}output.csv'
     local_file = 'output.csv'
