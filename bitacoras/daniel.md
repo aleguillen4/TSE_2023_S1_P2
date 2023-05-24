@@ -126,4 +126,17 @@ remote_dir = '/home/daniel/s1-2023/embebidos/p2/Emociones/'
 
 ```
 Se tiene también el archivo de pruebas de daniel gui_2.py (que es practicamente el mismo pero con unas lineas extras para correr el ambiente de anaconda)
-Referencias: bingchat
+
+## Martes 23 de mayo
+
+Rachel se deja la rasberr PI para intentar usar el router de la casa para conectarse por ssh.
+Le aydo por whatsapp
+
+La conexipon funciona, pero hay problemas con la app, se van arreglando varios problemas como el `head -1` y la calve publica.
+
+## Miercoles 24 de mayo 
+
+Daniel lleva el extensor NETGEAR para intentar crear el punto de acceso y no depender de la red de electro. No funciona, se configura pero no se logra hacer funcionar.
+
+Se utiliza la red de electro en un aula del segundo piso,  se logra conectarse correctamente. 
+
